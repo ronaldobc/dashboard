@@ -1,6 +1,7 @@
 import 'package:dashboard/constants/controllers.dart';
 import 'package:dashboard/constants/style.dart';
 import 'package:dashboard/helpers/responsive_widget.dart';
+import 'package:dashboard/pages/overview/widgets/avaliable_drivers.dart';
 import 'package:dashboard/pages/overview/widgets/overview_cards_large.dart';
 import 'package:dashboard/pages/overview/widgets/overview_cards_medium.dart';
 import 'package:dashboard/pages/overview/widgets/overview_cards_small.dart';
@@ -15,44 +16,48 @@ class OverviewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Obx(
-          () => Row(
-            children: [
-              Container(
-                margin: EdgeInsets.only(top: ResponsiveWidget.isSmallScreen(context) ? 56 : 6),
-                child: CustomText(
-                  text: menuController.activeItem.value,
-                  size: 24,
-                  weight: FontWeight.bold,
+    return Container(
+      color: light,
+      child: Column(
+        children: [
+          Obx(
+            () => Row(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: ResponsiveWidget.isSmallScreen(context) ? 56 : 6),
+                  child: CustomText(
+                    text: menuController.activeItem.value,
+                    size: 24,
+                    weight: FontWeight.bold,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        Expanded(
-          child: ListView(
-            children: [
-              if (ResponsiveWidget.isLargeScreen(context) ||
-                  ResponsiveWidget.isMediumScreen(context))
-                if (ResponsiveWidget.isCustomScreen(context))
-                  const OverviewCardsMedium()
+          const SizedBox(
+            height: 20,
+          ),
+          Expanded(
+            child: ListView(
+              children: [
+                if (ResponsiveWidget.isLargeScreen(context) ||
+                    ResponsiveWidget.isMediumScreen(context))
+                  if (ResponsiveWidget.isCustomScreen(context))
+                    const OverviewCardsMedium()
+                  else
+                    const OverviewCardsLarge()
                 else
-                  const OverviewCardsLarge()
-              else
-                const OverviewCardsSmall(),
-              if (ResponsiveWidget.isSmallScreen(context))
-                const RevenueSectionSmall()
-              else
-                const RevenueSectionLarge()
-            ],
+                  const OverviewCardsSmall(),
+                if (ResponsiveWidget.isSmallScreen(context))
+                  const RevenueSectionSmall()
+                else
+                  const RevenueSectionLarge(),
+                const AvaliableDrivers(),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

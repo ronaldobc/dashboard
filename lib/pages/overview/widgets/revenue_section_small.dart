@@ -35,27 +35,27 @@ class RevenueSectionSmall extends StatelessWidget {
             child: SimpleBarChart.withSampleData(),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               vertical: 30,
             ),
             child: Container(width: 200, height: 1, color: lightGrey),
           ),
-          Row(
+          const Row(
             children: [
               RevenueInfo(title: "Today's revenue", amount: "23"),
               RevenueInfo(title: "Last 7 days", amount: "150"),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
-          Row(
+          const Row(
             children: [
               RevenueInfo(title: "Last 230 days", amount: "1.203"),
               RevenueInfo(title: "Last 12 months", amount: "3.250"),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
         ],

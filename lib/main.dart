@@ -2,6 +2,7 @@ import 'package:dashboard/constants/style.dart';
 import 'package:dashboard/controllers/navigation_controller.dart';
 import 'package:dashboard/controllers/side_menu_controller.dart';
 import 'package:dashboard/layout.dart';
+import 'package:dashboard/pages/authentication/authentication.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/default_transitions.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
         //primarySwatch: Colors.blue,
         useMaterial3: true,
       ),
-      home: const Layout(),
+      home: const AuthenticationPage(),
     );
   }
 }
