@@ -1,26 +1,31 @@
-import 'package:dashboard/constants/style.dart';
+import 'package:dashboard/constants/controllers.dart';
+import 'package:dashboard/helpers/responsive_widget.dart';
 import 'package:dashboard/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AuthenticationPage extends StatelessWidget {
   const AuthenticationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        color: light,
-        child: Center(
-          child: CustomText(
-            text: "Authentication Page",
-            size: 25,
-            weight: FontWeight.bold,
-            color: active,
+    return Column(
+      children: [
+        Obx(
+          () => Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(top: ResponsiveWidget.isSmallScreen(context) ? 56 : 6),
+                child: CustomText(
+                  text: menuController.activeItem.value,
+                  size: 24,
+                  weight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
         ),
-      ),
+      ],
     );
   }
 }
