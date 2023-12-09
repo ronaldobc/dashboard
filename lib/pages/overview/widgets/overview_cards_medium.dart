@@ -6,7 +6,7 @@ class OverviewCardsMedium extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -20,7 +20,7 @@ class OverviewCardsMedium extends StatelessWidget {
               onTap: () {},
             ),
             SizedBox(
-              width: _width / 64,
+              width: width / 64,
             ),
             InfoCard(
               title: "Packages delivered",
@@ -42,7 +42,7 @@ class OverviewCardsMedium extends StatelessWidget {
               onTap: () {},
             ),
             SizedBox(
-              width: _width / 64,
+              width: width / 64,
             ),
             InfoCard(
               title: "Scheduled deliveries",

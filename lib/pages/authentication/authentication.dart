@@ -1,5 +1,5 @@
 import 'package:dashboard/constants/style.dart';
-import 'package:dashboard/layout.dart';
+import 'package:dashboard/routing/routes.dart';
 import 'package:dashboard/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -33,7 +33,8 @@ class AuthenticationPage extends StatelessWidget {
               Row(
                 children: [
                   Text("Login",
-                      style: GoogleFonts.roboto(fontSize: 30, fontWeight: FontWeight.bold)),
+                      style: GoogleFonts.roboto(
+                          fontSize: 30, fontWeight: FontWeight.bold)),
                 ],
               ),
               const SizedBox(
@@ -54,7 +55,8 @@ class AuthenticationPage extends StatelessWidget {
                 decoration: InputDecoration(
                     labelText: "Email",
                     hintText: "abc@domain.com",
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20))),
               ),
               const SizedBox(
                 height: 15,
@@ -64,7 +66,8 @@ class AuthenticationPage extends StatelessWidget {
                 decoration: InputDecoration(
                     labelText: "Password",
                     hintText: "123",
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20))),
               ),
               const SizedBox(
                 height: 15,
@@ -88,10 +91,11 @@ class AuthenticationPage extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  Get.offAll(() => const Layout());
+                  Get.offAllNamed(rootRoute);
                 },
                 child: Container(
-                  decoration: BoxDecoration(color: active, borderRadius: BorderRadius.circular(20)),
+                  decoration: BoxDecoration(
+                      color: active, borderRadius: BorderRadius.circular(20)),
                   alignment: Alignment.center,
                   width: double.maxFinite,
                   padding: const EdgeInsets.symmetric(vertical: 16),

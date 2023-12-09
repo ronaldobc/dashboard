@@ -3,9 +3,10 @@ import 'package:dashboard/controllers/navigation_controller.dart';
 import 'package:dashboard/controllers/side_menu_controller.dart';
 import 'package:dashboard/layout.dart';
 import 'package:dashboard/pages/authentication/authentication.dart';
+import 'package:dashboard/pages/errors/page_not_found_404.dart';
+import 'package:dashboard/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/routes/default_transitions.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -21,6 +22,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialRoute: authenticationPageRoute,
+      unknownRoute: GetPage(
+        name: "/not-found",
+        page: () => const PageNotFound(),
+        transition: Transition.fadeIn,
+      ),
+      getPages: [
+        GetPage(name: rootRoute, page: () => const Layout()),
+        GetPage(
+            name: authenticationPageRoute,
+            page: () => const AuthenticationPage()),
+      ],
       title: 'Dashboard',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -40,7 +53,6 @@ class MyApp extends StatelessWidget {
         //primarySwatch: Colors.blue,
         useMaterial3: true,
       ),
-      home: const AuthenticationPage(),
     );
   }
 }

@@ -16,7 +16,10 @@ class RevenueSectionSmall extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
-          BoxShadow(offset: const Offset(0, 6), color: lightGrey.withOpacity(0.1), blurRadius: 12)
+          BoxShadow(
+              offset: const Offset(0, 6),
+              color: lightGrey.withOpacity(0.1),
+              blurRadius: 12)
         ],
         border: Border.all(color: lightGrey, width: 0.5),
       ),
@@ -29,7 +32,7 @@ class RevenueSectionSmall extends StatelessWidget {
             weight: FontWeight.bold,
             color: lightGrey,
           ),
-          Container(
+          SizedBox(
             width: 600,
             height: 200,
             child: SimpleBarChart.withSampleData(),

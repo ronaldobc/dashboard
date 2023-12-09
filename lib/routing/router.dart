@@ -8,15 +8,15 @@ import 'package:flutter/material.dart';
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case overviewPageRoute:
-      return _getPageRoute(OverviewPage());
+      return _getPageRoute(const OverviewPage());
     case driversPageRoute:
-      return _getPageRoute(DriversPage());
+      return _getPageRoute(const DriversPage());
     case clientsPageRoute:
-      return _getPageRoute(ClientsPage());
+      return _getPageRoute(const ClientsPage());
     case authenticationPageRoute:
-      return _getPageRoute(AuthenticationPage());
+      return _getPageRoute(const AuthenticationPage());
     default:
-      return _getPageRoute(OverviewPage());
+      return _getPageRoute(const OverviewPage());
   }
 }
 
